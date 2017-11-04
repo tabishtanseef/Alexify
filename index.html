@@ -23,7 +23,7 @@
         <section class="content">
         </section>
 		<div class="content">
-			<audio src="song.mp3" controls=""></audio>
+			<audio src="jaiho.mp3" controls=""></audio>
 		</div>
         <footer> 
         <div class="controls">
@@ -37,14 +37,13 @@
     <script>
 $('.welcome-screen button').on('click', function() {
     var name = $('#name-input').val();
-	
-    if(name.length > 2) {
-    var message = "Welcome, " +  name;
+	if (name.length>2){
+    var message = "Welcome, " + name;
     $('.main .user-name').text(message);
     $('.welcome-screen').addClass('hidden');
     $('.main').removeClass('hidden');
-  }
-    else{
+	}
+	else{
 	$('#name-input').addClass('error');
 	}
 });
