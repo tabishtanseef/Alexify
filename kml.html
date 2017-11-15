@@ -23,22 +23,15 @@
                 <div class="right floated user-name"> </div>
             </header>
             <section class="content">
-                <audio src="song0.mp3"></audio>
+                <audio src="song5.mp3"></audio>
                 <div class="list-headers">
         <div> Title </div> 
         <div> Artist </div>
         <div> Album </div>
         <div> Duration </div>
         </div>
-        
         <div class="song-list">
         <div id="song0">
-        <span class="song-name"></span>
-        <span class="song-artist"></span>
-        <span class="song-album"></span>
-        <span class="song-length"></span>
-        </div>
-		<div id="song0">
         <span class="song-name"></span>
         <span class="song-artist"></span>
         <span class="song-album"></span>
@@ -69,7 +62,6 @@
         <span class="song-length"></span>
         </div>
         </div>
-        
             </section>
             <footer>
                 <div class="controls">
@@ -120,7 +112,7 @@
     });
     $('body').on('keypress', function(event) {
 				console.log(event.keyCode)
-                if (event.keyCode ==32) {
+                if (event.keyCode ==65) {
                    togglesong(); 
                 }
             });
@@ -156,14 +148,14 @@ function updateCurrentTime() {
 		  $('.time-elapsed').text(new_current_time);
 		  $('.song-duration').text(new_duration); 
 		}
-var songList = ['Gaal ni kadni','Badri Ki Dulhania (Title Track)', 'Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];
+
+    var songList = ['Gaal ni kadni','Badri Ki Dulhania (Title Track)', 2'Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];
 		window.onload = function() {
-			$('#song0 .song-name').text(songList[0]);
-			$('#song1 .song-name').text(songList[1]);
-			$('#song2 .song-name').text(songList[2]);
-			$('#song3 .song-name').text(songList[3]);
-			$('#song4 .song-name').text(songList[4]);
-		
+			$('#song0 .song-name').text(songName[0]);
+			$('#song1 .song-name').text(songName[1]);
+			$('#song2 .song-name').text(songName[2]);
+			$('#song3 .song-name').text(songName[3]);
+			$('#song4 .song-name').text(songName[4]);
 		updateCurrentTime();
 		  setInterval(function() {
 			updateCurrentTime();
