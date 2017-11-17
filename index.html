@@ -23,53 +23,39 @@
                 <div class="right floated user-name"> </div>
             </header>
             <section class="content">
-                <audio src="song0.mp3"></audio>
-                <div class="list-headers">
+                <audio src="song1.mp3"></audio>
+        <div class="list-headers">
         <div> Title </div> 
         <div> Artist </div>
         <div> Album </div>
         <div> Duration </div>
         </div>
-        
         <div class="song-list">
-        <div id="song0">
+        <div class="song" id="song1">
         <span class="song-name"></span>
         <span class="song-artist"></span>
         <span class="song-album"></span>
         <span class="song-length"></span>
         </div>
-		<div id="song0">
+		<div class="song" id="song2">
         <span class="song-name"></span>
         <span class="song-artist"></span>
         <span class="song-album"></span>
         <span class="song-length"></span>
         </div>
-		<div id="song1">
+		<div class="song" id="song3">
         <span class="song-name"></span>
         <span class="song-artist"></span>
         <span class="song-album"></span>
         <span class="song-length"></span>
         </div>
-		<div id="song2">
-        <span class="song-name"></span>
-        <span class="song-artist"></span>
-        <span class="song-album"></span>
-        <span class="song-length"></span>
-        </div>
-		<div id="song3">
-        <span class="song-name"></span>
-        <span class="song-artist"></span>
-        <span class="song-album"></span>
-        <span class="song-length"></span>
-        </div>
-		<div id="song4">
+		<div class="song" id="song4">
         <span class="song-name"></span>
         <span class="song-artist"></span>
         <span class="song-album"></span>
         <span class="song-length"></span>
         </div>
         </div>
-        
             </section>
             <footer>
                 <div class="controls">
@@ -89,87 +75,8 @@
     </div>
     <script src="jquery.js">
     </script>
-    <script>
-	function togglesong(){
-	var song = document.querySelector('audio');
-		if (song.paused == true) {
-			console.log('Playing');
-			$('.play-icon').removeClass('fa-play').addClass('fa-pause');
-			song.play();
-		} else {
-			console.log('Pausing');
-			$('.play-icon').removeClass('fa-pause').addClass('fa-play');
-			song.pause();
-		}
-	}
-	
-	
-    $('.welcome-screen button').on('click', function() {
-        var name = $('#name-input').val();
-        if (name.length > 2) {
-            var message = "Welcome, " + name;
-            $('.main .user-name').text(message);
-            $('.welcome-screen').addClass('hidden');
-            $('.main').removeClass('hidden');
-        } else {
-            $('#name-input').addClass('error');
-        }
-    });
-    $('.play-icon').on('click', function() {
-        togglesong();
-    });
-    $('body').on('keypress', function(event) {
-				console.log(event.keyCode)
-                if (event.keyCode ==32) {
-                   togglesong(); 
-                }
-            });
-			
-function fancyTimeFormat(time)
-{   
-    // Hours, minutes and seconds
-    var hrs = ~~(time / 3600);
-    var mins = ~~((time % 3600) / 60);
-    var secs = time % 60;
-
-    // Output like "1:01" or "4:03:59" or "123:03:59"
-    var ret = "";
-
-    if (hrs > 0) {
-        ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
-    }
-
-    ret += "" + mins + ":" + (secs < 10 ? "0" : "");
-    ret += "" + secs;
-    return ret;
-}
-			
-function updateCurrentTime() {
-		  var song = document.querySelector('audio');
-		  //console.log(song.currentTime);
-		  //console.log(song.duration);
-		  var currentTime = Math.floor(song.currentTime);
-		  var duration = Math.floor(song.duration);
-		  new_current_time = fancyTimeFormat(currentTime);
-		  new_duration = fancyTimeFormat(duration);
-		  
-		  $('.time-elapsed').text(new_current_time);
-		  $('.song-duration').text(new_duration); 
-		}
-var songList = ['Gaal ni kadni','Badri Ki Dulhania (Title Track)', 'Humma Song', 'Nashe Si Chadh Gayi', 'The Breakup Song'];
-		window.onload = function() {
-			$('#song0 .song-name').text(songList[0]);
-			$('#song1 .song-name').text(songList[1]);
-			$('#song2 .song-name').text(songList[2]);
-			$('#song3 .song-name').text(songList[3]);
-			$('#song4 .song-name').text(songList[4]);
-		
-		updateCurrentTime();
-		  setInterval(function() {
-			updateCurrentTime();
-		  },1000);
-		}
-</script>
+	<script src="main.js"></script>
+   
 </body>
 
 </html>
