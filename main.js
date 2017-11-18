@@ -67,8 +67,9 @@ function updateCurrentTime() {
 		}
 		
 		
-function addSongNameClickEvent(songName,position) {
-  var id = '#song' + position;
+function addSongNameClickEvent(songObj,position) {
+    var songName = songObj.fileName;
+	var id = '#song' + position;
     $(id).click(function() {
     var audio = document.querySelector('audio');
     var currentSong = audio.src;
@@ -79,6 +80,7 @@ function addSongNameClickEvent(songName,position) {
     else {
       audio.src = songName;
       toggleSong();
+	  changeCurrentSongDetails(songObj);
     }
 });
 }		
@@ -92,32 +94,37 @@ function addSongNameClickEvent(songName,position) {
 				'artist': 'Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi',
 				'album': 'Badrinath ki Dulhania',
 				'duration': '2:56',
-			   'fileName': 'song1.mp3'
+			   'fileName': 'song1.mp3',
+			    'image': 'song1.jpg'
 			  },
 			  {
 				'name': 'Humma Song',
 				'artist': 'Badshah, Jubin Nautiyal, Shashaa Tirupati',
 				'album': 'Ok Jaanu',
 				'duration': '3:15',
-				'fileName': 'song2.mp3'
+				'fileName': 'song2.mp3',
+				'image': 'song2.jpg'
 			  },
 			  {
 				'name': 'Nashe si chadh gyi',
 				'artist': 'Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi',
 				'album': 'Badrinath ki Dulhania',
 				'duration': '2:56',
-			   'fileName': 'song3.mp3'
+			   'fileName': 'song3.mp3',
+			   'image': 'song3.jpg'
 			  },
 			  {
 				'name': 'Break Up song',
 				'artist': 'Neha Kakkar, Monali Thakur, Ikka Singh, Dev Negi',
 				'album': 'Badrinath ki Dulhania',
 				'duration': '2:56',
-			   'fileName': 'song4.mp3'
+			   'fileName': 'song4.mp3',
+			   'image': 'song4.jpg'
 			  }
 			   
 ]
 		window.onload = function() {
+			changeCurrentSongDetails(songs[0]);
 		for(var i =0; i < songs.length ; i++) {
 			var obj = songs[i];
 			var name = '#song' + (i+1);
@@ -126,11 +133,17 @@ function addSongNameClickEvent(songName,position) {
 			song.find('.song-artist').text(obj.artist);
 			song.find('.song-album').text(obj.album);
 			song.find('.song-length').text(obj.duration);
-			addSongNameClickEvent(obj.fileName,i+1)
+			addSongNameClickEvent(obj,i+1)
 		}
 		updateCurrentTime();
 		  setInterval(function() {
 			updateCurrentTime();
 		  },1000);
 		}
+		
+function changeCurrentSongDetails(songObj) {
+	  $('.current-song-image').attr('src','img/' + songObj.image) ;
+	  $('.current-song-name').text(songObj.name) ;
+	  $('.current-song-album').text(songObj.album) ;
+	}
 		
